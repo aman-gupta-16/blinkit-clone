@@ -47,6 +47,7 @@ export const ordersAPI = {
   placeOrder: (data) => api.post('/orders', data),
   getMyOrders: () => api.get('/orders'),
   getOrderById: (orderId) => api.get(`/orders/${orderId}`),
+  getAllAdminOrders: () => api.get('/orders/admin/all'),
 };
 
 export default api;

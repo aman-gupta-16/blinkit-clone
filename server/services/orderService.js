@@ -10,6 +10,18 @@ const STATUS_TIMINGS = {
 };
 
 /**
+ * TODO: Replace this setTimeout-based approach with a robust task scheduler for production.
+ * Currently using setTimeout due to limited time to complete this task, but this approach has flaws:
+ *   - The timers are lost if the Node.js server restarts or crashes.
+ *   - It scales poorly and leaks memory for a high volume of orders.
+ *   - It cannot be horizontally scaled across multiple instances.
+ * 
+ * Better alternative to implement in the future:
+ *   - Message queue systems like BullMQ / RabbitMQ with Redis for delayed jobs.
+ */
+
+
+/**
  * Schedule automatic status transitions for an order.
  * Fires 3 setTimeout calls — one per status step.
  */

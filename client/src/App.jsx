@@ -10,6 +10,7 @@ import Login from './pages/Login';
 import AdminProducts from './pages/AdminProducts';
 import OrderConfirmation from './pages/OrderConfirmation';
 import Orders from './pages/Orders';
+import AdminOrders from './pages/AdminOrders';
 
 const ProtectedAdminRoute = ({ children }) => {
   const { user, loading } = useAuth();
@@ -36,6 +37,14 @@ const AppLayout = () => {
             element={
               <ProtectedAdminRoute>
                 <AdminProducts />
+              </ProtectedAdminRoute>
+            }
+          />
+          <Route
+            path="/admin/orders"
+            element={
+              <ProtectedAdminRoute>
+                <AdminOrders />
               </ProtectedAdminRoute>
             }
           />

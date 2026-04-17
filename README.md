@@ -77,8 +77,8 @@ JWT-based authentication. Token is stored in `localStorage` and attached via `Au
 
 | Role  | Permissions |
 |-------|-------------|
-| `user` | Browse products, manage own cart |
-| `admin` | All user permissions + create/edit/delete products |
+| `user` | Browse products, manage own cart, place orders, view order history |
+| `admin` | All user permissions + create/edit/delete products + manage orders |
 
 **Admin credentials (after seeding):**
 - Email: `admin@blinkit.com`
@@ -112,6 +112,14 @@ JWT-based authentication. Token is stored in `localStorage` and attached via `Au
 | POST | `/api/cart` | Add item `{ productId, quantity }` |
 | PUT | `/api/cart/:id` | Update item quantity |
 | DELETE | `/api/cart/:id` | Remove item |
+
+### Orders (all protected)
+| Method | Endpoint | Access | Description |
+|--------|----------|--------|-------------|
+| POST | `/api/orders` | User | Place a new order |
+| GET | `/api/orders` | User | Get current user's past & active orders |
+| GET | `/api/orders/:orderId` | User | Get detailed information for a specific order |
+| GET | `/api/orders/admin/all` | Admin | Get all orders from across the platform |
 
 ---
 

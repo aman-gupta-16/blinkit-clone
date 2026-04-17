@@ -110,14 +110,24 @@ const Navbar = ({ onSearch }) => {
                     My Orders
                   </Link>
                   {user.role === 'admin' && (
-                    <Link
-                      to="/admin"
-                      onClick={() => setShowUserMenu(false)}
-                      className="flex items-center gap-2 px-4 py-3 hover:bg-blinkit-gray text-sm text-blinkit-text transition-colors"
-                    >
-                      <Package size={16} className="text-blinkit-green" />
-                      Manage Products
-                    </Link>
+                    <>
+                      <Link
+                        to="/admin"
+                        onClick={() => setShowUserMenu(false)}
+                        className="flex items-center gap-2 px-4 py-3 hover:bg-blinkit-gray text-sm text-blinkit-text transition-colors"
+                      >
+                        <Package size={16} className="text-blinkit-green" />
+                        Manage Products
+                      </Link>
+                      <Link
+                        to="/admin/orders"
+                        onClick={() => setShowUserMenu(false)}
+                        className="flex items-center gap-2 px-4 py-3 hover:bg-blinkit-gray text-sm text-blinkit-text transition-colors"
+                      >
+                        <ShoppingBag size={16} className="text-blinkit-green" />
+                        Manage Orders
+                      </Link>
+                    </>
                   )}
                   <button
                     onClick={handleLogout}
